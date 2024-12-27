@@ -1,6 +1,6 @@
 #
 
-1. download template
+1. Download template
 
 - [Link to preconfigured start.spring.io](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.3.4&packaging=jar&jvmVersion=21&groupId=ua.cn.stu&artifactId=univer02&name=univer02&description=Spring%20Boot%20project%20for%20university&packageName=ua.cn.stu.univer02&dependencies=native,devtools,docker-compose,modulith,web,data-jdbc,postgresql,spring-ai-vectordb-pgvector,spring-ai-openai,lombok)
 - Unarchive, open folder in terminal and in IDE
@@ -28,7 +28,7 @@
   # logging.level.org.springframework.data=DEBUG
   ```
 
-4. install db plugin to IDE OR use other client
+4. Install db plugin to IDE OR use other client
 
 - intellij - available only commercial or education version
 - eclipse - DBeaver
