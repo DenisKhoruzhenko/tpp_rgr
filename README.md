@@ -1,58 +1,43 @@
-# Department Web Application
+#
 
-## Опис проекту
-Веб-застосунок для управління інформацією кафедри, розроблений з використанням Java Spring Framework.
+1. download template
 
-## Технології
-- Java
-- Spring Framework
-- Maven
-- PostgreSQL
-- Docker
+- [Link to preconfigured start.spring.io](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.3.4&packaging=jar&jvmVersion=21&groupId=ua.cn.stu&artifactId=univer02&name=univer02&description=Spring%20Boot%20project%20for%20university&packageName=ua.cn.stu.univer02&dependencies=native,devtools,docker-compose,modulith,web,data-jdbc,postgresql,spring-ai-vectordb-pgvector,spring-ai-openai,lombok)
+- Unarchive, open folder in terminal and in IDE
+- run -> exception
+- comment openai deps in pom.xml -> run -> no exception
 
-## Передумови
-Для запуску проекту вам потрібно мати встановлено:
-- Docker
-- Docker Compose
-- PostgreSQL
-- pgAdmin (для налаштування бази даних)
-- JDK 17 або вище
-- Maven
+2. Start DB via docker run in terminal
+   (if windows -> install WSL2)
+   (if no docker → [download](https://docs.rancherdesktop.io/getting-started/installation/), install, start)
 
-## Налаштування бази даних
-1. Відкрийте pgAdmin
-2. Підключіться до вашого PostgreSQL сервера
-3. Знайдіть в корені проекту SQL файл
-4. Виконайте SQL скрипт для створення та наповнення бази даних
+   ```
+   docker compose up
+   ```
 
-## Запуск проекту
-1. Клонуйте репозиторій:
-```bash
-git clone [url-репозиторію]
-```
+3. Configure DB Access in java app
 
-2. Перейдіть до директорії проекту:
-```bash
-cd [назва-директорії]
-```
+- dockerfile port: "5432:5432”
+- application.properties:
+  ```
+  spring.datasource.url=jdbc:postgresql://localhost:5432/mydatabase
+  spring.datasource.username=myuser
+  spring.datasource.password=secret
+  # # spring.jpa.hibernate.ddl-auto=update
+  # logging.level.org.springframework.jdbc.core=TRACE
+  # logging.level.org.springframework.data=DEBUG
+  ```
 
-3. Запустіть Docker контейнери:
-```bash
-docker-compose up -d
-```
+4. install db plugin to IDE OR use other client
 
-4. Запустіть застосунок:
-```bash
-mvn spring-boot:run
-```
+- intellij - available only commercial or education version
+- eclipse - DBeaver
+- vscode - Database Client + Database Client JDBC
+- linux terminal
+  ```
+  pgcli -p 5432 -h localhost  mydatabase -U myuser -W
+  ```
 
-## Порти за замовчуванням
-- Веб-застосунок: `http://localhost:2222`
-- PostgreSQL: `5432`
+5. Init DB
 
-
-## Конфігурація
-Основні налаштування застосунку:
-- Порт сервера: 2222
-- Налаштування підключення до бази даних знаходяться в файлі `application.properties` або `application.yml`
-- Головний застосунук знаходиться в папці LAB3
+- sql file in sql_schema/db_init.sql
