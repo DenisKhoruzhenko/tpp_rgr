@@ -37,3 +37,5 @@
   ```
   pgcli -p 5432 -h localhost  mydatabase -U myuser -W
   ```
+
+Visit `http://localhost:9090/login` to open the UI.
