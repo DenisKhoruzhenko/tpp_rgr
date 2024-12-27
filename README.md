@@ -37,7 +37,10 @@
   ```
   pgcli -p 5432 -h localhost  mydatabase -U myuser -W
   ```
-  
-5. Access the Application
+ 5. Init DB
+
+ - sql file in sql_schema/db_init.sql
+
+6. Access the Application
 
    Visit `http://localhost:9090/login` to open the UI.
